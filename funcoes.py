@@ -17,7 +17,7 @@ def cadastrar_dados():
     try: #Inicia um bloco de código que tenta executar as instruções dentro dele. 
         # Abrir o arquivo 'Dados.txt' em modo de apêndice (adicionar dados ao final do arquivo)
         with open("Dados.txt", "a") as arquivo:
-            # Solicitar ao usuário as informações do aluno
+            # Solicitar ao usuário as informações do pet/cliente 
             codigo_pet = input("Digite o código do seu pet: ")
             nome_cliente = input("Digite o seu nome: ")
             contato = input("Digite um número para contato: ")
@@ -30,7 +30,7 @@ def cadastrar_dados():
             cor = input("Digite a cor do seu pet: ")
             obs = input("Observações: ")
 
-            # Formatar os dados do aluno em uma string
+            # Formatar os dados do pet em uma string
             cliente = f"{codigo_pet},{nome_cliente},{contato},{cep},{ponto_de_referencia},{nome_pet},{data_nascimento},{raca},{peso},{cor},{obs}\n"
 
             # Escrever a string formatada no arquivo 'Dados.txt'
@@ -114,7 +114,7 @@ def alterar_dados():
         if not linhas:
             print("Nenhum dado de cliente cadastrado.")
             return
-        # Solicitar ao usuário o código do aluno que deseja alterar
+        # Solicitar ao usuário o código do pet que deseja alterar
         codigo_pet = input("Digite o código do pet que deseja alterar: ")
         encontrado = False
 
@@ -125,9 +125,9 @@ def alterar_dados():
                 # Dividir a linha em partes separadas por vírgula (',') e remover os espaços em branco
                 dados = linha.strip().split(",")
 
-                # Verificar se o código do aluno na linha atual corresponde ao código fornecido pelo usuário
+                # Verificar se o código do pet na linha atual corresponde ao código fornecido pelo usuário
                 if dados[0] == codigo_pet:
-                    # Solicitar ao usuário os novos dados para o aluno
+                    # Solicitar ao usuário os novos dados para o pet/cliente 
                     novo_codigo_pet = input("Digite o novo código do seu pet: ")
                     novo_nome_cliente = input("Digite o novo nome do cliente: ")
                     novo_contato = input("Digite o novo número para contato: ")
@@ -140,13 +140,13 @@ def alterar_dados():
                     nova_cor = input("Digite a nova cor do seu pet: ")
                     nova_obs = input("Digite uma nova observação: ")
 
-                    # Criar uma nova linha com os novos dados do aluno
+                    # Criar uma nova linha com os novos dados do pet/cliente 
                     linha = f"{novo_codigo_pet},{novo_nome_cliente},{novo_contato},{novo_cep},{novo_ponto_de_referencia},{novo_nome_pet},{nova_data_de_nascimento},{nova_raca},{novo_peso},{nova_cor},{nova_obs}\n"
                     print("Dados do cliente alterados com sucesso!")
                     encontrado = True
                 # Escrever a linha no arquivo
                 arquivo.write(linha)
-        # Verificar se nenhum aluno foi encontrado com o código fornecido
+        # Verificar se nenhum pet foi encontrado com o código fornecido
         if not encontrado:
             print("Nenhum pet encontrado com o código fornecido.")
     except ValueError:
