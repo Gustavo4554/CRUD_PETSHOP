@@ -14,10 +14,10 @@ def cabecalho():
 
 # Função para cadastro dos Dados
 def cadastrar_dados():
-    try: #Inicia um bloco de código que tenta executar as instruções dentro dele. 
-        # Abrir o arquivo 'Dados.txt' em modo de apêndice (adicionar dados ao final do arquivo)
+    try: 
+        # Abrir o arquivo 'Dados.txt' em modo de apêndice 
         with open("Dados.txt", "a") as arquivo:
-            # Solicitar ao usuário as informações do pet/cliente 
+            # informaçoes solicitadas
             codigo_pet = input("Digite o código do seu pet: ")
             nome_cliente = input("Digite o seu nome: ")
             contato = input("Digite um número para contato: ")
@@ -30,7 +30,7 @@ def cadastrar_dados():
             cor = input("Digite a cor do seu pet: ")
             obs = input("Observações: ")
 
-            # Formatar os dados do pet em uma string
+            # formatar os dados em uma string
             cliente = f"{codigo_pet},{nome_cliente},{contato},{cep},{ponto_de_referencia},{nome_pet},{data_nascimento},{raca},{peso},{cor},{obs}\n"
 
             # Escrever a string formatada no arquivo 'Dados.txt'
@@ -52,6 +52,7 @@ def listar_dados():
     # Nesse caso, o código dentro do try tenta abrir o arquivo Dados.txt em modo de leitura ("r"), ler todas as linhas do arquivo e armazená-las em uma lista (linhas).
     try:
         # Abrir o arquivo 'Dados.txt' em modo de leitura ('r')
+     
         with open("Dados.txt", "r") as arquivo:
             # Ler todas as linhas do arquivo e armazená-las em uma lista
             linhas = arquivo.readlines()
@@ -202,7 +203,8 @@ def backup_dados():
 
         #Abrir dados clientes
         with open ('Dados.txt','r') as origem:
-            dados = origem.read()
+            dados = origem.read() #lido e armazenada na variavel dados
+            
 
             #Criar uma copia dos dados clientes
             with open ('dados_backup.txt','w') as destino:
