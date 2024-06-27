@@ -49,6 +49,7 @@ def cadastrar_dados():
 
 # Função para Listar os dados
 def listar_dados():
+    # Nesse caso, o código dentro do try tenta abrir o arquivo Dados.txt em modo de leitura ("r"), ler todas as linhas do arquivo e armazená-las em uma lista (linhas).
     try:
         # Abrir o arquivo 'Dados.txt' em modo de leitura ('r')
         with open("Dados.txt", "r") as arquivo:
@@ -105,6 +106,7 @@ def listar_dados():
 
 # Função para alterar os dados
 def alterar_dados():
+    # Nesse caso, o código dentro do try tenta abrir o arquivo Dados.txt em modo de leitura ("r"), ler todas as linhas do arquivo e armazená-las em uma lista (linhas).
     try:
         # Abrir o arquivo 'Dados.txt' em modo de leitura ('r')
         with open("Dados.txt", "r") as arquivo:
@@ -218,7 +220,7 @@ def backup_dados():
 
 
 def exibir_menu():
-    while True:
+    while True: #criaçao de loop infinito, na qual o usuario so saira digitando "0"
         cabecalho()
         print("Escolha a opção:")
         print("1 - Cadastrar Dados")
